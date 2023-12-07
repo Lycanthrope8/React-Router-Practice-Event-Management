@@ -31,11 +31,11 @@ import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import HomePage from "./pages/HomePage";
 import EventsPage, { eventsLoader } from "./pages/EventsPage";
 import EventDetailPage, { eventDeleteLoader, eventDetailsLoader } from "./pages/EventDetailPage";
-import NewEventPage, { submitNewEvent } from "./pages/NewEventPage";
+import NewEventPage from "./pages/NewEventPage";
 import EditEventPage from "./pages/EditEventPage";
 import Root from "./pages/Root";
 import ErrorPage from "./pages/ErrorPage";
-
+import { submitEvent } from "./components/EventForm";
 import EventRoot from "./pages/EventRoot";
 
 const router = createBrowserRouter([
@@ -64,10 +64,10 @@ const router = createBrowserRouter([
                 element: <EventDetailPage />,
                 action: eventDeleteLoader
               },
-              { path: "edit", element: <EditEventPage /> },
+              { path: "edit", element: <EditEventPage />, action: submitEvent },
             ],
           },
-          { path: "new", element: <NewEventPage />, action: submitNewEvent },
+          { path: "new", element: <NewEventPage />, action: submitEvent },
         ],
       },
     ],
