@@ -1,34 +1,44 @@
-import { json, useLoaderData } from "react-router-dom";
-import EventsList from "../components/EventsList";
+import { Suspense } from 'react';
+import { useLoaderData, json, defer, Await } from 'react-router-dom';
 
-const EventDetailPage = () => {
-  const data = useLoaderData();
-  const events = data.events;
-  if (data.isError) {
-    return <p>{data.message}</p>;
-  }
+import EventsList from '../components/EventsList';
+
+function EventsPage() {
+  const { events } = useLoaderData();
+
   return (
-    <>
-      <EventsList events={events} />
-    </>
+    <Suspense fallback={<p style={{ textAlign: 'center' }}>Loading...</p>}>
+      <Await resolve={events}>
+        {(loadedEvents) => <EventsList events={loadedEvents} />}
+      </Await>
+    </Suspense>
   );
-};
+}
 
-export default EventDetailPage;
+export default EventsPage;
 
+async function loadEvents() {
+  const response = await fetch('http://localhost:8080/events');
 
-
-    // This code executes on the browser not in the server
-    // It means you can use any browser api
-    // like fetch, localstorage, etc.
-    // But you can't use React hooks like useState, useEffect, etc.
-export const eventsLoader = async () => {
-  const response = await fetch("http://localhost:8080/events"); 
   if (!response.ok) {
-    // return {isError: true, message: "Couldn't fetch the events!"};
-    // throw new Response(JSON.stringify({message: "Couldn't fetch the events!"}), {status: 500});
-    return json({message: "Couldn't fetch the events!"}, {status: 500});
+    // return { isError: true, message: 'Could not fetch events.' };
+    // throw new Response(JSON.stringify({ message: 'Could not fetch events.' }), {
+    //   status: 500,
+    // });
+    throw json(
+      { message: 'Could not fetch events.' },
+      {
+        status: 500,
+      }
+    );
   } else {
-    return response; // React by default sent json data
+    const resData = await response.json();
+    return resData.events;
   }
-};
+}
+
+export function eventsLoader() {
+  return defer({
+    events: loadEvents(),
+  });
+}
