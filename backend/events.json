@@ -1,1 +1,12 @@
-{"events":[{"title":"Testingggg","image":"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ7xE1iZ1Mct5tVS9uxvHWENUS1TpQL9sYczDm6flWRNp8QHjyEuECEAjer7qsO-SeNQEA&usqp=CAU","date":"2023-12-09","description":"dfgdfgd","id":"fea51730-ed48-464c-8793-0110e68f158e"},{"title":"here we go another time","image":"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ7xE1iZ1Mct5tVS9uxvHWENUS1TpQL9sYczDm6flWRNp8QHjyEuECEAjer7qsO-SeNQEA&usqp=CAU","date":"2023-12-14","description":"fsdrfgdf","id":"7dcd83de-2fde-4304-a74b-1e0e193b7c8f"},{"title":"Here we go again","image":"https://images.pexels.com/photos/2263436/pexels-photo-2263436.jpeg?cs=srgb&dl=pexels-teddy-yang-2263436.jpg&fm=jpg","date":"2023-12-13","description":"sdasda","id":"9d1be906-3dcd-4155-8673-fa78bef4644b"},{"title":"Orgy party","image":"https://cdna.artstation.com/p/assets/images/images/038/456/424/large/maeve-althea-control-movie-poster-5fe.jpg?1623152749","date":"2023-12-19","description":"fuckkkkkkkkkkkkkkkkkkkkkkkk","id":"92929a12-342e-42a2-9c88-7ecddd5d525b"},{"title":"Fuck party","image":"https://designshack.net/wp-content/uploads/jazz-poster.jpg","date":"2023-12-21","description":"Jazzzzzzzzzzzzzz","id":"1aecf0cb-f33a-4c7b-8585-850de03277fa"},{"id":"e1","title":"A dummy event","date":"2023-02-22","image":"https://blog.hubspot.de/hubfs/Germany/Blog_images/Optimize_Marketing%20Events%20DACH%202021.jpg","description":"Join this amazing event and connect with fellow developers."}]}
+{
+  "events": [
+    {
+      "title": "A new event",
+      "image": "https://cdn.muenchen-p.de/fl_progressive,q_65/.imaging/stk/responsive/teaser300/dms/va-2016/muenchner-christkindlmarkt/christkindlmarkt-marienplat-logo-hp/document/christkindlmarkt-marienplat-logo-hp.jpg",
+      "date": "2022-10-01",
+      "description": "Some awesome event!",
+      "id": "2a42fcc4-ea21-4bdd-abf6-c40006dc66a9"
+    }
+  ],
+  "users": []
+}
