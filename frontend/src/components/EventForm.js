@@ -1,6 +1,7 @@
 import { Form, useNavigate } from "react-router-dom";
 import { json, redirect } from "react-router-dom";
 import classes from "./EventForm.module.css";
+import { getAuthTokens } from "../util/auth";
 
 function EventForm({ method, event }) {
   const navigate = useNavigate();
@@ -71,11 +72,12 @@ export const submitEvent = async ({ request, params }) => {
     method === "POST"
       ? "http://localhost:8080/events"
       : `http://localhost:8080/events/${params.eventId}`; // if method is POST, create a new event, otherwise update the existing event (PATCH
-
+  const token = getAuthTokens();
   const response = await fetch(url, {
     method: method,
     headers: {
       "Content-Type": "application/json",
+      'Authorization': 'Bearer ' + token, // add the token to the request header
     },
     body: JSON.stringify(formData),
   });

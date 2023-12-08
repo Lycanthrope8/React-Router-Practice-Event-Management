@@ -1,12 +1,1 @@
-{
-  "events": [
-    {
-      "title": "A new event",
-      "image": "https://cdn.muenchen-p.de/fl_progressive,q_65/.imaging/stk/responsive/teaser300/dms/va-2016/muenchner-christkindlmarkt/christkindlmarkt-marienplat-logo-hp/document/christkindlmarkt-marienplat-logo-hp.jpg",
-      "date": "2022-10-01",
-      "description": "Some awesome event!",
-      "id": "2a42fcc4-ea21-4bdd-abf6-c40006dc66a9"
-    }
-  ],
-  "users": []
-}
+{"events":[{"title":"Heere ","image":"https://d1csarkz8obe9u.cloudfront.net/posterpreviews/landscape-event-flyer-template-4cca730db0c244cb05611c3d52a3134f_screen.jpg?ts=1561392110","date":"2023-12-12","description":"sdadas","id":"2031a588-1f7a-45c6-9e0a-06b7ee6c05e1"}],"users":[{"email":"jubayer@gmail","password":"$2a$12$7arBILjloL9VcKcHZHQ3ZOcNDLu83HhPdR3If.oQ9ER4qy2rKC38S","id":"f4a8cb32-dcbe-4e98-add4-fac9e480d387"},{"email":"ahona@gmail","password":"$2a$12$9uDWI4EtpiEtiDTQDLfrpOrhyqi7XguvLzioBMSqpx.DmiJGi/f2G","id":"498d6625-49a5-4b81-9373-6a2b8515c19e"}]}

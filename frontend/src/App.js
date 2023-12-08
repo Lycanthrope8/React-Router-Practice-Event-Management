@@ -38,7 +38,7 @@ import ErrorPage from "./pages/ErrorPage";
 import { submitEvent } from "./components/EventForm";
 import EventRoot from "./pages/EventRoot";
 import NewsletterPage, { action as newsletterAction } from './pages/Newsletter';
-
+import AuthenticationPage, { AuthAction } from './pages/Authentication';
 const router = createBrowserRouter([
   {
     path: "/",
@@ -70,6 +70,11 @@ const router = createBrowserRouter([
           },
           { path: "new", element: <NewEventPage />, action: submitEvent },
         ],
+      },
+      {
+        path: 'auth',
+        element: <AuthenticationPage />,
+        action: AuthAction,
       },
       {
         path: 'newsletter',
