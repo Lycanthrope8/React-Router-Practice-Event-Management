@@ -30,20 +30,27 @@
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import HomePage from "./pages/HomePage";
 import EventsPage, { eventsLoader } from "./pages/EventsPage";
-import EventDetailPage, { eventDeleteLoader, eventDetailsLoader } from "./pages/EventDetailPage";
+import EventDetailPage, {
+  eventDeleteLoader,
+  eventDetailsLoader,
+} from "./pages/EventDetailPage";
 import NewEventPage from "./pages/NewEventPage";
 import EditEventPage from "./pages/EditEventPage";
 import Root from "./pages/Root";
 import ErrorPage from "./pages/ErrorPage";
 import { submitEvent } from "./components/EventForm";
 import EventRoot from "./pages/EventRoot";
-import NewsletterPage, { action as newsletterAction } from './pages/Newsletter';
-import AuthenticationPage, { AuthAction } from './pages/Authentication';
+import NewsletterPage, { action as newsletterAction } from "./pages/Newsletter";
+import AuthenticationPage, { AuthAction } from "./pages/Authentication";
+import { Logout } from "./pages/Logout";
+import { checkAuthLoader, tokenLoader } from "./util/auth";
 const router = createBrowserRouter([
   {
     path: "/",
     element: <Root />,
     errorElement: <ErrorPage />,
+    id: "root",
+    loader: tokenLoader, // this is the token loader for the root page
     children: [
       { index: true, element: <HomePage /> },
       {
@@ -57,29 +64,43 @@ const router = createBrowserRouter([
           },
           {
             path: ":eventId",
-            id : "event-details",
+            id: "event-details",
             loader: eventDetailsLoader,
             children: [
               {
                 index: true,
                 element: <EventDetailPage />,
-                action: eventDeleteLoader
+                action: eventDeleteLoader,
               },
-              { path: "edit", element: <EditEventPage />, action: submitEvent },
+              {
+                path: "edit",
+                element: <EditEventPage />,
+                action: submitEvent,
+                loader: checkAuthLoader,
+              },
             ],
           },
-          { path: "new", element: <NewEventPage />, action: submitEvent },
+          {
+            path: "new",
+            element: <NewEventPage />,
+            action: submitEvent,
+            loader: checkAuthLoader, // this is the token loader so that the user can't access the page without a token
+          },
         ],
       },
       {
-        path: 'auth',
+        path: "auth",
         element: <AuthenticationPage />,
         action: AuthAction,
       },
       {
-        path: 'newsletter',
+        path: "newsletter",
         element: <NewsletterPage />,
         action: newsletterAction,
+      },
+      {
+        path: "logout",
+        action: Logout,
       },
     ],
   },
