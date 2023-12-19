@@ -6,7 +6,7 @@ const Root = () => {
   
   return (
     <>
-      {/* <MainNavigation /> */}
+      <MainNavigation />
       <main>
         {navigate.state==='loading' &&<p>Loading....</p>}
         <Outlet />
